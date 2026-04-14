@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ForteBase ERP · 傻瓜部署指南</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0f1117;color:#e8eaf2;min-height:100vh;padding:20px;}
+.wrap{max-width:680px;margin:0 auto;}
+h1{color:#f5a623;font-size:24px;margin-bottom:6px;}
+.sub{color:#7b82a0;font-size:14px;margin-bottom:30px;}
+.step{background:#1a1d27;border:1px solid #2e3348;border-radius:14px;padding:20px 24px;margin-bottom:16px;}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#f5a623;color:#111;border-radius:50%;font-weight:900;font-size:15px;margin-right:10px;flex-shrink:0;}
+.step-title{font-size:16px;font-weight:700;display:flex;align-items:center;margin-bottom:12px;}
+.step-body{font-size:13px;color:#aab;line-height:1.8;padding-left:42px;}
+a{color:#3498db;text-decoration:none;font-weight:600;}
+a:hover{text-decoration:underline;}
+.btn-link{display:inline-block;background:#f5a623;color:#111;padding:8px 18px;border-radius:8px;font-weight:700;font-size:13px;margin:4px 2px;text-decoration:none;}
+.btn-link:hover{opacity:.85;text-decoration:none;}
+.btn-blue{background:#3498db;color:#fff;}
+code{background:#222638;padding:2px 7px;border-radius:5px;font-family:monospace;font-size:12px;color:#f5a623;}
+.tip{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12px;color:#c8a96a;}
+.done{background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.25);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:13px;color:#2ecc71;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🧱 ForteBase ERP · 傻瓜部署指南</h1>
+  <p class="sub">从零开始，大约 15 分钟，完全免费</p>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-title"><span class="step-num">1</span>注册 GitHub（代码托管，免费）</div>
+    <div class="step-body">
+      <a href="https://github.com/signup" target="_blank" class="btn-link">→ 点这里注册 GitHub</a>
+      <p style="margin-top:10px;">随便填邮箱和用户名，一路点 Continue，验证邮箱就完成了。</p>
+      <div class="tip">💡 已有GitHub账号？直接跳到第2步</div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-title"><span class="step-num">2</span>在 GitHub 新建仓库</div>
+    <div class="step-body">
+      <a href="https://github.com/new" target="_blank" class="btn-link">→ 新建仓库</a>
+      <p style="margin-top:10px;">
+        • Repository name：填 <code>fortebase-erp</code>（随便起）<br>
+        • 选 <strong>Public</strong>（公开，Vercel免费版需要）<br>
+        • 勾选 <strong>Add a README file</strong><br>
+        • 点 <strong>Create repository</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-title"><span class="step-num">3</span>上传这个文件夹里的所有文件</div>
+    <div class="step-body">
+      <p>在刚才新建的仓库页面：</p>
+      <p style="margin-top:8px;">
+        1. 点 <strong>Add file → Upload files</strong><br>
+        2. 把这个 <strong>deploy 文件夹里的所有内容</strong>（不是文件夹本身）拖进去：
+      </p>
+      <div style="background:#222638;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:12px;font-family:monospace;color:#7b82a0;">
+        📄 index.html<br>
+        📄 manifest.json<br>
+        📄 sw.js<br>
+        📄 vercel.json<br>
+        📁 icons/<br>
+        &nbsp;&nbsp;├── icon-72.png<br>
+        &nbsp;&nbsp;├── icon-96.png<br>
+        &nbsp;&nbsp;├── icon-128.png<br>
+        &nbsp;&nbsp;├── icon-192.png<br>
+        &nbsp;&nbsp;└── icon-512.png
+      </div>
+      <p>3. 拖完点 <strong>Commit changes</strong></p>
+      <div class="tip">💡 icons 文件夹需要进入文件夹后再上传里面的文件，或者直接把5个png全部拖进去（GitHub会自动识别路径）</div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-title"><span class="step-num">4</span>注册 Vercel 并部署（免费托管）</div>
+    <div class="step-body">
+      <a href="https://vercel.com/signup" target="_blank" class="btn-link btn-blue">→ 点这里注册 Vercel</a>
+      <p style="margin-top:10px;">
+        1. 选 <strong>Continue with GitHub</strong>（用GitHub账号登录）<br>
+        2. 点 <strong>Add New → Project</strong><br>
+        3. 找到 <code>fortebase-erp</code> 仓库 → 点 <strong>Import</strong><br>
+        4. 什么都不用改 → 直接点 <strong>Deploy</strong><br>
+        5. 等1分钟，出现 <strong style="color:#2ecc71;">Congratulations!</strong>
+      </p>
+      <div class="done">✅ 部署成功！你会得到一个网址，类似：<br><code>https://fortebase-erp.vercel.app</code></div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-title"><span class="step-num">5</span>配置 Supabase 云同步（免费）</div>
+    <div class="step-body">
+      <a href="https://supabase.com/dashboard/sign-up" target="_blank" class="btn-link btn-blue">→ 注册 Supabase</a>
+      <p style="margin-top:10px;">
+        1. 注册后点 <strong>New project</strong><br>
+        2. Organization 选默认，填项目名 <code>fortebase-erp</code><br>
+        3. Database Password 设一个强密码（保存好）<br>
+        4. Region 选 <strong>Southeast Asia (Singapore)</strong>（安哥拉最近）<br>
+        5. 点 <strong>Create new project</strong>，等约2分钟
+      </p>
+      <p style="margin-top:10px;font-weight:700;color:#e8eaf2;">建表（运行一次）：</p>
+      <p>进入 <strong>SQL Editor</strong>，复制粘贴以下内容，点 <strong>Run</strong>：</p>
+      <div style="background:#222638;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:11px;font-family:monospace;color:#7b82a0;white-space:pre-wrap;">CREATE TABLE IF NOT EXISTS erp_snapshots (
+  device_id     TEXT PRIMARY KEY,
+  snapshot      JSONB NOT NULL,
+  saved_at      TIMESTAMPTZ DEFAULT now(),
+  version       TEXT,
+  store_count   INT DEFAULT 1,
+  store_names   TEXT,
+  boss_name     TEXT,
+  sale_count    INT DEFAULT 0,
+  product_count INT DEFAULT 0
+);
+ALTER TABLE erp_snapshots ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "allow_all" ON erp_snapshots
+  FOR ALL USING (true) WITH CHECK (true);</div>
+      <p style="margin-top:10px;font-weight:700;color:#e8eaf2;">获取密钥：</p>
+      <p>左侧菜单 <strong>Settings → API</strong>，复制：<br>
+      • <strong>Project URL</strong>（如 <code>https://xxxx.supabase.co</code>）<br>
+      • <strong>anon public</strong> key（很长的字符串）
+      </p>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-title"><span class="step-num">6</span>在APP里填入云端配置</div>
+    <div class="step-body">
+      <p>
+        1. 手机/电脑打开你的 Vercel 网址<br>
+        2. 用老板PIN登录<br>
+        3. 点左侧 <strong>⚙️ 设置</strong><br>
+        4. 切换到 <strong>💾 数据备份</strong> 标签<br>
+        5. 找到 <strong>☁️ 云端同步</strong> 区域<br>
+        6. 填入第5步复制的 URL 和 Key<br>
+        7. 点 <strong>保存并连接</strong>
+      </p>
+      <div class="done">✅ 右上角出现 ☁️ 已同步 = 全部完成！</div>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-title"><span class="step-num">7</span>安装到安卓手机桌面</div>
+    <div class="step-body">
+      <p>
+        1. 手机 Chrome 打开你的网址<br>
+        2. 屏幕下方会出现橙色安装横幅 → 点 <strong>安装</strong><br>
+        3. 或者：Chrome 右上角 ⋮ → <strong>添加到主屏幕</strong><br>
+        4. 桌面出现 🧱 图标，打开就是APP，全屏无地址栏
+      </p>
+      <div class="tip">💡 4台设备（2台POS电脑 + 2台老板手机）都用浏览器打开同一个网址，各自安装或书签。数据通过云端自动同步。</div>
+    </div>
+  </div>
+
+  <!-- DONE -->
+  <div style="text-align:center;padding:30px 0;">
+    <div style="font-size:40px;margin-bottom:10px;">🎉</div>
+    <div style="font-size:18px;font-weight:700;color:#f5a623;margin-bottom:8px;">完成！</div>
+    <div style="color:#7b82a0;font-size:13px;">你现在有了一个可以安装到手机、支持离线使用、<br>多台设备自动同步的ForteBase ERP系统</div>
+  </div>
+
+  <div style="border-top:1px solid #2e3348;padding-top:20px;text-align:center;color:#7b82a0;font-size:12px;">
+    如果遇到问题，把错误截图发给我，继续帮你解决。
+  </div>
+</div>
+</body>
+</html>
